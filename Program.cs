@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Variant4Program
 {
@@ -32,12 +32,13 @@ namespace Variant4Program
             // Контрольні питання
             Console.WriteLine("\nПеред виведенням результату, дайте відповіді на 2 питання:");
             Console.Write("1. Який оператор вибору використовується у цій програмі? ");
-            string ans1 = Console.ReadLine().ToLower();
+            string ans1 = Console.ReadLine().ToLower().Trim();
 
             Console.Write("2. Який ще оператор вибору ви знаєте? ");
-            string ans2 = Console.ReadLine().ToLower();
+            string ans2 = Console.ReadLine().ToLower().Trim();
 
-            if (!(ans1.Contains("if") && (ans2.Contains("if") || ans2.Contains("switch"))))
+            // Коректна перевірка відповідей
+            if (!(ans1.Contains("if") && ans2 != "if" && (ans2.Contains("switch") || ans2.Contains("тернарний") || ans2.Contains("else"))))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nТреба вивчити оператори вибору.");
